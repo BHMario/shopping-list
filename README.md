@@ -72,13 +72,13 @@ La salida se genera en la carpeta `dist`.
 
 ## Despliegue en GitHub Pages
 
-El flujo `.github/workflows/deploy.yml` compila y publica `dist` automáticamente al hacer push a `main` o `master` (también se puede ejecutar manualmente desde GitHub Actions).
+GitHub Pages sirve la versión compilada desde la rama `gh-pages`, sin GitHub Actions.
 
-1. Sube el proyecto a un repositorio llamado `shopping-list`.
-2. En **Settings → Pages**, selecciona **GitHub Actions** como origen.
-3. Espera a que termine el flujo **Deploy to GitHub Pages**. La aplicación estará en `https://<usuario>.github.io/shopping-list/`.
+1. Compila la aplicación con `npm run build`.
+2. Publica el contenido de `dist` en la raíz de la rama `gh-pages`.
+3. En **Settings → Pages**, selecciona **Deploy from a branch**, la rama `gh-pages` y la carpeta `/(root)`.
 
-Si el repositorio tiene otro nombre, actualiza `base` en `vite.config.ts` para que coincida con la ruta pública, por ejemplo:
+La URL de este repositorio es `https://bhmario.github.io/shopping-list/`. Si el repositorio tiene otro nombre, actualiza `base` en `vite.config.ts` para que coincida con su ruta:
 
 ```ts
 const base = '/nombre-del-repositorio/'
